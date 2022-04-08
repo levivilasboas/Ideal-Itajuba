@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Ideal-Itajuba
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-card>
+      <ion-card-content>
+        <div class="title">
+          <h1>Seja bem-vindo(a) à Ideal-Itajuba</h1>
+          <span>Para iniciar seu cadastro, preencha as informações abaixo</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <form [formGroup]="fGroup" (submit)="singup()" novalidate>
+    <ion-list>
+    <ion-item color="light" lines="none">
+      <ion-label id="nome" position="floating">Nome</ion-label>
+      <ion-input type="text" formControlName="name" ></ion-input>
+    </ion-item>
+
+    <ion-item color="light" lines="none">
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" formControlName="email" ></ion-input>
+    </ion-item>
+
+    <ion-item color="light" lines="none">
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" formControlName="senha"></ion-input>
+    </ion-item>
+
+    <ion-item color="light" lines="none">
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="number" simpleMask="999.999.999-99" formControlName="CPF"></ion-input>
+    </ion-item>
+
+
+    <ion-item color="light" lines="none">
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="number" simpleMask="(99) 99999-9999" maxlength="15" clearInput formControlName="number" >
+      </ion-input>
+    </ion-item>
+
+
+    <ion-item color="light" lines="none">
+      <ion-label position="floating">Idade</ion-label>
+      <ion-input type="number" formControlName="idade"></ion-input>
+    </ion-item>
+    
+    <ion-item color="light" lines="none">
+      <ion-label>Recebe Beneficio INSS?</ion-label>
+    </ion-item>
+
+    <ion-item> 
+              <ion-button class="opc" (click)="PossuiINSS()" >Sim</ion-button>
+              <ion-button class="opc" >Não</ion-button> 
+    </ion-item>
+ 
+
+  </ion-list>
+
+
+
+    <ion-button class="save" (click)="RecebeINSS()" (click)="submitform()" [disabled]="!fGroup.valid">
+      Salvar
+    </ion-button>
+  </form>
+
+<p>
+  Caso não consiga realizar a simulação entre em contato pelo nosso whatsapp (35)9721-6004
+</p>
+
+<ion-button color="success" href="https://api.whatsapp.com/send?phone=5535997216004">WhatsApp</ion-button> 
+
+
+</ion-content>

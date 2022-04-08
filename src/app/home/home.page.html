@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="dark">
+  <ion-grid mode="ios">
+    <ion-row>
+      <img src="assets/img/icon.jpeg" class="login-logo">
+    </ion-row>
+    
+      <ion-row>
+        <ion-col mode="ios">
+          <ion-card>
+        <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <ion-input type="text" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="lock-open"></ion-icon>
+          <ion-input type="text" placeholder="Senha"></ion-input>
+        </ion-item>
+      </ion-card>
+      </ion-col>
+      </ion-row>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <div class="entrar">
+        <ion-button>Entrar</ion-button>
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <div class="cadastrar">
+        <p>Ainda não possui cadastro?</p>
+        <ion-button (click)="goToSignUpPage()">Cadastrar-se </ion-button>
+      </div>
+
+    
+  </ion-grid>
 </ion-content>
