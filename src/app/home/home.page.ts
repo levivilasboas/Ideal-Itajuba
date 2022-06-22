@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/Ususario';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,29 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  constructor(public router: Router) 
+
+  listaUsuarios: Usuario[] = [];
+
+  constructor(public router: Router, private storageService : StorageService) 
   {}
   
+ async buscarUsuarios(){
+   this.listaUsuarios = await this.storageService.getAll();
+   
+ }
+
+ chamateste(){
+   console.log("formulario nome",this.storageService.getAll())
+ }
+ async excluirCadastro(email :string) {
+   await this.storageService.remove(email);
+   this.buscarUsuarios();
+}
+
+ IonViewDidEnter(){
+  this.buscarUsuarios();
+}
+
   ngOnInit(){
     
   }

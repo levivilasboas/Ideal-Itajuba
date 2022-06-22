@@ -20,56 +20,57 @@
       </ion-card-content>
     </ion-card>
 
-    <form [formGroup]="fGroup" (submit)="singup()" novalidate>
-    <ion-list>
-    <ion-item color="light" lines="none">
-      <ion-label id="nome" position="floating">Nome</ion-label>
-      <ion-input type="text" formControlName="name" ></ion-input>
+    <form [formGroup]="formCadastro">
+    
+    <ion-item >
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input formControlName="nome"></ion-input>
+      
     </ion-item>
-
-    <ion-item color="light" lines="none">
+   
+     <ion-item>
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="number" formControlName="cpf"></ion-input>
+    </ion-item>
+ 
+    <ion-item >
       <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email" formControlName="email" ></ion-input>
+      <ion-input formControlName="email" ></ion-input>
     </ion-item>
 
-    <ion-item color="light" lines="none">
+    <ion-item >
       <ion-label position="floating">Senha</ion-label>
       <ion-input type="password" formControlName="senha"></ion-input>
     </ion-item>
+  
 
-    <ion-item color="light" lines="none">
-      <ion-label position="floating">CPF</ion-label>
-      <ion-input type="number" simpleMask="999.999.999-99" formControlName="CPF"></ion-input>
-    </ion-item>
-
-
-    <ion-item color="light" lines="none">
+    <ion-item >
       <ion-label position="floating">Telefone</ion-label>
-      <ion-input type="number" simpleMask="(99) 99999-9999" maxlength="15" clearInput formControlName="number" >
+      <ion-input type="number" simpleMask="(99) 99999-9999" maxlength="15" clearInput formControlName="telefone" >
       </ion-input>
     </ion-item>
 
-
-    <ion-item color="light" lines="none">
+ 
+    <ion-item >
       <ion-label position="floating">Idade</ion-label>
-      <ion-input type="number" formControlName="idade"></ion-input>
-    </ion-item>
-    
-    <ion-item color="light" lines="none">
-      <ion-label>Recebe Beneficio INSS?</ion-label>
+      <ion-input type="number" ></ion-input>
     </ion-item>
 
-    <ion-item> 
-              <ion-button class="opc" (click)="PossuiINSS()" >Sim</ion-button>
-              <ion-button class="opc" >Não</ion-button> 
+    <ion-item >
+      <ion-label  > Recebe Beneficio INSS?</ion-label>
+      <ion-input formControlName="inss" >
+        <div > 
+        <ion-button  size="small" (click)="ComInss()">Sim</ion-button> 
+      </div>
+      <div>
+        <ion-button size="small" (click)="SemInss()">Não</ion-button>
+      </div>
+      </ion-input>
+      
     </ion-item>
  
-
-  </ion-list>
-
-
-
-    <ion-button class="save" (click)="RecebeINSS()" (click)="submitform()" [disabled]="!fGroup.valid">
+ 
+    <ion-button class="save"  (click)="salvarCadastro()" >
       Salvar
     </ion-button>
   </form>
