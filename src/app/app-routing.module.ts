@@ -15,14 +15,24 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
-  },
+
   {
     path: 'simulacao',
     loadChildren: () => import('./simulacao/simulacao.module').then( m => m.SimulacaoPageModule)
   },
+  {
+    path: 'contacts',
+    loadChildren: () => import('./contacts/contact-list/contact-list.module').then( m => m.ContactListPageModule)
+  },
+  {
+    path: 'contacts/new',
+    loadChildren: () => import('./contacts/contact-form/contact-form.module').then( m => m.ContactFormPageModule)
+  },
+  {
+    path: 'contacts/edit/:id',
+    loadChildren: () => import('./contacts/contact-form/contact-form.module').then( m => m.ContactFormPageModule)
+  },
+ 
 ];
 
 @NgModule({

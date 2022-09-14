@@ -3,40 +3,40 @@
     <ion-row>
       <img src="assets/img/icon.jpeg" class="login-logo">
     </ion-row>
-    
-      <ion-row>
-        <ion-col mode="ios">
+    <form (ngSubmit)="goToLogin()" >
+    <ion-row>
+      <ion-col mode="ios">
+        
           <ion-card>
-        <ion-item>
-          <ion-icon name="person"></ion-icon>
-          <ion-input type="text" placeholder="Email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="lock-open"></ion-icon>
-          <ion-input type="text" placeholder="Senha"></ion-input>
-        </ion-item>
-      </ion-card>
+            <ion-item>
+              <ion-icon name="person"></ion-icon>
+              <ion-input autocapitalize="on" placeholder="Email"  [(ngModel)]="contact.email" name="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="lock-open"></ion-icon>
+              <ion-input type="password" autocapitalize="on" [(ngModel)]="contact.senha" placeholder="Senha"  name="senha"></ion-input>
+            </ion-item>
+            
+          </ion-card>
+        
       </ion-col>
-      </ion-row>
+    </ion-row>
 
-      <div class="entrar">
-        <ion-button>Entrar</ion-button>
-      </div>
+    <div class="entrar">
+      <ion-button type="submit" (click)="goToLogin()">Entrar</ion-button>
+    </div>
+  </form>
+    <div class="cadastrar">
+      <p>Ainda não possui cadastro?</p>
+      <ion-button (click)="goToall()">Banco </ion-button>
+      <ion-button (click)="goToCadastro()">Cadastrar-se</ion-button>
 
-      <div class="cadastrar">
-        <p>Ainda não possui cadastro?</p>
-        <ion-button (click)="goToSignUpPage()">Cadastrar-se </ion-button>
-      </div>
+    </div>
 
-    
+
   </ion-grid>
 
-  <!-- <button (click)="chamateste()" >tudo </button> //////////////teste para storage
-  <button (click)="excluirCadastro(user.email)" >limpa </button>
-   -->
-  
+
+
 </ion-content>
-
-
-
-

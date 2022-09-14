@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Usuario } from '../models/Ususario';
-import { StorageService } from '../services/storage.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { Contact } from '../contacts/shared/contact';
+import { ContactService } from '../contacts/shared/contact.service';
+
+
 
 @Component({
   selector: 'app-home',
@@ -9,36 +12,30 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-
-  listaUsuarios: Usuario[] = [];
-
-  constructor(public router: Router, private storageService : StorageService) 
+  email:string;
+  senha:string;
+  contacts: Contact[] = [];
+  contact: Contact;
+  constructor(public router: Router,private contactService: ContactService) 
   {}
   
- async buscarUsuarios(){
-   this.listaUsuarios = await this.storageService.getAll();
-   
- }
-
- chamateste(){
-   console.log("formulario nome",this.storageService.getAll())
- }
- async excluirCadastro(email :string) {
-   await this.storageService.remove(email);
-   this.buscarUsuarios();
-}
-
- IonViewDidEnter(){
-  this.buscarUsuarios();
-}
-
   ngOnInit(){
+    this.contact = new Contact();
     
   }
 
-  public goToSignUpPage() {
-    this.router.navigateByUrl('/sign-up');
+   async goToLogin(contact:Contact) {
+      this.router.navigateByUrl('/login');
+  }
+  
+
+
+  public goToCadastro() {
+    this.router.navigateByUrl('/contacts/new');
+  }
+
+  public goToall() {
+    this.router.navigateByUrl('/contacts');
   }
 
 }

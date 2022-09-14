@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card>
+  <ion-card-content>
+    <div class="title">
+      <h1>Seja bem-vindo(a) à Ideal-Itajuba</h1>
+      <span>Para iniciar seu cadastro, preencha as informações abaixo</span>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password" autocapitalize="on" [(ngModel)]="contact.senha" name="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.cpf" name="cpf"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Telefone</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.telefone" name="telefone"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label position="stacked">INSS</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.INSS" name="INSS"></ion-input>
+    </ion-item> -->
+
+
+    <div class="ion-magin-vertical">
+      <ion-button type="submit" color="secondary" expland="block" >Salvar</ion-button>
+    </div>
+  </form> 
+  <p>
+    Caso não consiga realizar a simulação entre em contato pelo nosso whatsapp (35)9721-6004
+  </p>
+  
+  <ion-button color="success" href="https://api.whatsapp.com/send?phone=5535997216004&text=Olá meu nome é:   meu CPF é:    INSS(Sim/Não):">WhatsApp</ion-button> 
+ 
+</ion-content>

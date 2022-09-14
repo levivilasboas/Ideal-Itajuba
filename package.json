@@ -19,12 +19,26 @@
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",
-    "@capacitor/core": "3.5.1",
+    "@awesome-cordova-plugins/splash-screen": "^5.44.0",
+    "@awesome-cordova-plugins/sqlite": "^5.44.0",
+    "@awesome-cordova-plugins/sqlite-porter": "^5.44.0",
+    "@awesome-cordova-plugins/status-bar": "^5.44.0",
+    "@capacitor/android": "4.0.1",
+    "@capacitor/app": "4.0.1",
+    "@capacitor/core": "4.0.1",
+    "@capacitor/haptics": "4.0.1",
+    "@capacitor/keyboard": "4.0.1",
+    "@capacitor/status-bar": "4.0.1",
+    "@ionic-native/sqlite": "^5.36.0",
+    "@ionic-native/sqlite-porter": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+    "cordova-android": "10.1.2",
+    "cordova-plugin-splashscreen": "^6.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
+    "uk.co.workingedge.cordova.plugin.sqliteporter": "^1.1.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -37,13 +51,17 @@
     "@angular/compiler": "~12.1.1",
     "@angular/compiler-cli": "~12.1.1",
     "@angular/language-service": "~12.0.1",
-    "@capacitor/cli": "3.5.1",
+    "@capacitor/cli": "4.0.1",
     "@ionic/angular-toolkit": "^4.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^5.0.0",
+    "cordova-plugin-statusbar": "^2.4.2",
     "cordova-sqlite-storage": "^6.0.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
@@ -64,7 +82,16 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-sqlite-storage": {}
-    }
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "uk.co.workingedge.cordova.plugin.sqliteporter": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

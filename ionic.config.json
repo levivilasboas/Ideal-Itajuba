@@ -1,5 +1,7 @@
 {
   "name": "Ideal-Itajuba",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
