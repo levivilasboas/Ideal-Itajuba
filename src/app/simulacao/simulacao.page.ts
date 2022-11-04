@@ -10,6 +10,7 @@ export class SimulacaoPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

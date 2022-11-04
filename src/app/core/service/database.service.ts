@@ -32,7 +32,7 @@ export class DatabaseService {
 
   getCreateTable() {
     const sqls = [];
-    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, name varchar(100), email varchar(30), senha varchar(15), cpf integer (11), telefone integer (11) );');
+    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, name varchar(100), email varchar(30), senha varchar(15), cpf integer (11),idade integer (3) ,telefone integer (11) );');
     return sqls.join('\n');
     
     

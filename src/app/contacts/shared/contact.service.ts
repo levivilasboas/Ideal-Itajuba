@@ -18,8 +18,8 @@ export class ContactService {
   }
 
   private insert(contact: Contact) {
-    const sql = 'insert into contacts (name,email,senha,cpf,telefone) values (?,?,?,?,?)';
-    const data = [contact.name, contact.email, contact.senha, contact.cpf, contact.telefone];
+    const sql = 'insert into contacts (name,email,senha,cpf, idade ,telefone) values (?,?,?,?,?,?)';
+    const data = [contact.name, contact.email, contact.senha, contact.cpf, contact.idade, contact.telefone];
     console.log(data,'inser data banco');
     
     
@@ -54,6 +54,7 @@ export class ContactService {
       contact.email=item.email;  
       contact.senha=item.senha;
       contact.cpf=item.cpf; 
+      contact.idade=item.idade;
       contact.telefone=item.telefone;
     }
     return contact;
@@ -90,16 +91,24 @@ export class ContactService {
 
 
 
- async login(contact:Contact){
-    const sql = 'select * from contacts where email = ? AND  senha = ?';
-    const data = [contact.email,contact.senha]
-
-    console.log("returno de função login",data);
+ async login(email,senha:string){
+    const sql = 'select * from contacts where email = ? AND senha = ?';
+    const data = [email,senha];
     const result = await this.db.executeSQL(sql, data);
-  console.log("retorno login",result);
-  
-    return result;
+    const rows = result.rows;
+    const contact = new Contact();
+    if (rows && rows.length > 0) {
+      const item = rows.item(0);
+      contact.id = item.id;
+      contact.name = item.name;
+      contact.email=item.email;  
+      contact.cpf=item.cpf; 
+      contact.telefone=item.telefone;
+    }
+    return contact;
   }
+
+
 
 
 }

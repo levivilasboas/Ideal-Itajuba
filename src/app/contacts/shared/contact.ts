@@ -4,6 +4,7 @@ export class Contact {
     email:string;
     senha:string;
     cpf:number;
+    idade:number;
     telefone:number;
-    // INSS:boolean
+    INSS:string
 }

@@ -12,7 +12,6 @@ import { ContactService } from '../shared/contact.service';
 export class ContactFormPage implements OnInit {
   title: string = "Novo Contato";
   contact: Contact;
-  urlW:string;
   
 
   constructor(
@@ -24,8 +23,8 @@ export class ContactFormPage implements OnInit {
   ngOnInit() {
     this.contact = new Contact();
 
-    const idParam = this.route.snapshot.paramMap.get('id');
-    if (idParam){
+    const idParam = this.route.snapshot.paramMap.get('id'); // busca no banco o contato pelo id
+    if (idParam){ //se o id for verdade o tito altera para edição
       this.title = 'Editar Contato';
       this.loadContact(parseInt(idParam));
     }
@@ -35,13 +34,13 @@ export class ContactFormPage implements OnInit {
   
   
   async loadContact(id: number){
-    this.contact = await this.contactService.getById(id);
+    this.contact = await this.contactService.getById(id);//busca todos o contatos
   }
 
 
   async onSubmit(){
     try {
-      const result = await this.contactService.save(this.contact);
+      const result = await this.contactService.save(this.contact);//chama a função save no banco
       this.contact.id = result.insertId;
 
       const toast = await this.toastCtrl.create({
@@ -66,11 +65,22 @@ export class ContactFormPage implements OnInit {
      
 
     }
+
+   
   }
 
+  //Troca o valor do this.contact.INSS de true para "Sim"
+  troca(){
 
+    if(this.contact.INSS){
 
+      this.contact.INSS = 'sim';
 
+   console.log(this.contact.INSS,"inss no troca");
 
+    }
+   
+  }
 
+  
 }

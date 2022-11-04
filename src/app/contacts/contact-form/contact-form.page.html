@@ -19,7 +19,7 @@
 <ion-content class="ion-padding">
   <form (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Nome</ion-label>
+      <ion-label position="stacked">Nome completo</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="name"></ion-input>
     </ion-item>
 
@@ -39,24 +39,32 @@
     </ion-item>
 
     <ion-item>
+      <ion-label position="stacked">Idade</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.idade" name="idade"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label position="stacked">Telefone</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.telefone" name="telefone"></ion-input>
     </ion-item>
 
-    <!-- <ion-item>
-      <ion-label position="stacked">INSS</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.INSS" name="INSS"></ion-input>
-    </ion-item> -->
+    <ion-item>
+      <ion-label>Possui Beneficio INSS?</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sim</ion-label>
+      <ion-checkbox (ionChange)="troca()" autocapitalize="on"   [(ngModel)]="contact.INSS" name="INSS" slot="start" ></ion-checkbox>
+    </ion-item>
 
 
-    <div class="ion-magin-vertical">
-      <ion-button type="submit" color="secondary" expland="block" >Salvar</ion-button>
+    <div class="ion-magin-vertical"  >
+      <ion-button  type="submit" color="secondary" expland="block" >Salvar</ion-button>
     </div>
   </form> 
   <p>
-    Caso não consiga realizar a simulação entre em contato pelo nosso whatsapp (35)9721-6004
+    Para realizar a simulação clique no botão abaixo ou entre em contato pelo nosso whatsapp (35)9721-6004
   </p>
   
-  <ion-button color="success" href="https://api.whatsapp.com/send?phone=5535997216004&text=Olá meu nome é:   meu CPF é:    INSS(Sim/Não):">WhatsApp</ion-button> 
- 
+  <ion-button  color="success"   href="https://api.whatsapp.com/send?phone=5535997216004&text=Olá meu nome é: {{contact.name}}  meu CPF é: {{contact.cpf}}   INSS: {{contact.INSS}}">WhatsApp</ion-button> 
+
 </ion-content>

@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   senha:string;
   contacts: Contact[] = [];
   contact: Contact;
-  constructor(public router: Router,private contactService: ContactService) 
+  constructor(public router: Router,private contactService: ContactService,private toastCtrl: ToastController) 
   {}
   
   ngOnInit(){
@@ -25,7 +25,31 @@ export class HomePage implements OnInit {
   }
 
    async goToLogin(contact:Contact) {
+    //função de validação 
+    //pegar parametros da tela "email" e "senha"
+    //
+    this.email = this.contact.email;
+    this.senha = this.contact.senha;
+    const usuario = await this.contactService.login(this.email,this.senha)
+   
+     
+    
+    if ( usuario.email  )
+    {
+
       this.router.navigateByUrl('/login');
+    }
+     else{
+      const toast = await this.toastCtrl.create({
+        header: 'Erro',
+        message: 'Erro ao fazer login.',
+        color: 'danger',
+        position: 'top',
+        duration: 3000
+      });
+      toast.present();
+     }
+      
   }
   
 

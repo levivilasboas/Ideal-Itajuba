@@ -9,14 +9,21 @@ import { ContactService } from '../contacts/shared/contact.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  
   contacts: Contact[] = [];
   contact: Contact;
   constructor(public router: Router,private contactService: ContactService, ) { }
 
  async ngOnInit() {
-    this.contact = await this.contactService.login(this.contact)
+      
     
   }
 
+
+  gotoSimulacao(){
+    this.router.navigateByUrl('/simulacao');
+  }
+
+  
   
 }
